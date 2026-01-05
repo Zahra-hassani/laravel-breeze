@@ -10,19 +10,21 @@
     <h1 class="text-center py-4 font-bold text-2xl text-white bg-teal-800">All Students</h1>
     <table class="mx-auto my-5 w-[70%] border-2">
         <tr>
-            <th class="text-center border-2 px-3 py-1">ID</th>
-            <th class="text-center border-2 px-3 py-1">Name</th>
-            <th class="text-center border-2 px-3 py-1">Last Name</th>
-            <th class="text-center border-2 px-3 py-1">Edit</th>
-            <th class="text-center border-2 px-3 py-1">Delete</th>
+            <th class="text-center border-2 border-teal-800 bg-teal-800 text-white px-3 py-1">ID</th>
+            <th class="text-center border-2 border-teal-800 bg-teal-800 text-white px-3 py-1">Name</th>
+            <th class="text-center border-2 border-teal-800 bg-teal-800 text-white px-3 py-1">Last Name</th>
+            <th class="text-center border-2 border-teal-800 bg-teal-800 text-white px-3 py-1">Edit</th>
+            <th class="text-center border-2 border-teal-800 bg-teal-800 text-white px-3 py-1">Delete</th>
         </tr>
         @foreach ($students as $student)
             <tr>
                 <td class="text-center border-2 px-3 py-1">{{ $student->id }}</td>
                 <td class="text-center border-2 px-3 py-1">{{ $student->name }}</td>
                 <td class="text-center border-2 px-3 py-1">{{ $student->lastName }}</td>
+                @can('edit-student',$student)
                 <td class="text-center border-2 px-3 py-1"><a href="{{ URL('student/edit' , $student->id) }}">Edit</a></td>
                 <td class="text-center border-2 px-3 py-1"><a href="{{ URL('student/delete' , $student->id) }}">Delete</a></td>
+                @endcan
             </tr>
         @endforeach
     </table>

@@ -22,6 +22,8 @@ Route::middleware('auth')->group(function () {
 Route::prefix("student")->controller(StudentController::class)->middleware("auth")->group(function (){
     Route::get('/','index');
     Route::get('/edit/{id}','edit');
+    Route::put('/update/{id}','update');
+    Route::get('/delete/{id}','delete');
 });
 
 require __DIR__.'/auth.php';
