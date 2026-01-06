@@ -31,8 +31,9 @@ class StudentController extends Controller
     }
 
     public function delete($id){
-        $student = student::findOrFail($id)->delete();
-        Gate::authorize('student',$student);
+        $student = student::findOrFail($id);
+        Gate::authorize('delete',$student);
+        $student->delete();
         return redirect("/student");
     }
 }

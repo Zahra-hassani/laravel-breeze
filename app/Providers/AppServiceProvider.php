@@ -20,16 +20,16 @@ class AppServiceProvider extends ServiceProvider
             return $user->id === $student->user_id;
         });
 
-        Gate::define('student',function (User $user, student $student,teacher $teacher){
-            return ($user->id === $student->user_id ) || ($user->id === $teacher->user_id);
-        });
     }
-
+    
     /**
      * Bootstrap any application services.
-     */
+    */
     public function boot(): void
     {
         //
+        // Gate::define('delete',function (User $user, student $student, teacher $teacher){
+        //     return ($user->id === $student->user_id ) || ($user->id === $teacher->user_id);
+        // });
     }
 }
