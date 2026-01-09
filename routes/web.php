@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 use App\Http\Middleware\TeacherMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,10 @@ Route::prefix("student")->controller(StudentController::class)->middleware("auth
     Route::get('/edit/{id}','edit');
     Route::put('/update/{id}','update');
     Route::get('/delete/{id}','delete');
+});
+
+Route::prefix('teacher')->controller(TeacherController::class)->middleware("auth")->group(function (){
+    Route::get('/',"index");
 });
 
 require __DIR__.'/auth.php';
