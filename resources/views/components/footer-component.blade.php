@@ -15,15 +15,15 @@
         </div>
         <div class="flex flex-col gap-5 text-white">
             <p class="text-2xl font-bold">Contact Us</p>
-            <div class="flex gap-5 group">
+            <div class="flex gap-5 group items-center">
                 <i class="fab fa-facebook group-hover:text-white text-white/50"></i>
                 <p>Sharifi Programming Academy</p>
             </div>
-            <div class="flex gap-5 group">
+            <div class="flex gap-5 group items-center">
                 <i class="fas fa-envelope group-hover:text-white text-white/50"></i>
                 <p>www.sharifi.org</p>
             </div>
-            <div class="flex gap-5 group">
+            <div class="flex gap-5 group items-center">
                 <i class="fas fa-phone group-hover:text-white text-white/50"></i>
                 <p>+93799244536</p>
             </div>

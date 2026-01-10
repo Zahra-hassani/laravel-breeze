@@ -20,14 +20,18 @@
             <tr>
                 <td class="px-3 py-1 text-center border-2">{{ $teacher->id }}</td>
                 <td class="px-3 py-1 text-center border-2">{{ $teacher->name }}</td>
-                <td class="px-3 py-1 text-center border-2"><a href="">Edit</a></td>
+                @can('update',$teacher)
+                <td class="px-3 py-1 text-center border-2"><a href="{{ URL('teacher/edit' , $teacher->id) }}">Edit</a></td>
+                @endcan
+                @can('delete',$teacher)
                 <td class="px-3 py-1 text-center border-2">
-                    <form action="" method="post">
+                    <form action="{{ URL('teacher/delete',$teacher->id) }}" method="post">
                         @csrf
                         @method("DELETE")
                         <input type="submit" value="Delete">
                     </form>
                 </td>
+                @endcan
             </tr>
         @endforeach
     </table>

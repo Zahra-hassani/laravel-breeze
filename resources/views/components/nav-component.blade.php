@@ -15,6 +15,8 @@
         </li>
     </ul>
     <div class="flex justify-between items-center gap-4 text-white">
-        <a href="/dashboard"><i class="fas fa-user-circle"></i></a>
+        <a href="/dashboard"><i class="fas fa-magnifying-glass text-xl" title="Search"></i></a>
+        <a href="/dashboard"><i class="fas fa-user-circle text-xl" title="User Dashboard"></i></a>
+        <a href="/dashboard"><i class="fas fa-circle-info text-xl" title="About Us"></i></a>
     </div>
 </nav>
