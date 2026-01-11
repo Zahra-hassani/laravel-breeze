@@ -9,6 +9,10 @@
 </head>
 <body>
     <x-nav-component className="h-20 w-full sticky top-0 left-0 flex justify-between items-center gap-4 px-3 bg-sky-600 text-white" />
+
+    @if (session()->get("message"))
+        <h1 class="absolute bottom-4 right-5 p-4 rounded bg-sky-600 text-white font-bold">{{ session("message") }}</h1>
+    @endif
     <table class="mx-auto w-[70%] border-2 my-7">
         <tr>
             <th class="text-white border-2 border-sky-600 text-center px-3 py-1 bg-sky-600">ID</th>

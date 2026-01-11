@@ -37,8 +37,8 @@ class teacherPolicy
      */
     public function update(User $user, teacher $teacher): bool
     {
-        // return $user->id === $teacher->userid;
-        return true;
+        return $user->id === $teacher->user_id;
+        // return true;
     }
 
     /**
@@ -46,7 +46,7 @@ class teacherPolicy
      */
     public function delete(User $user, teacher $teacher): bool
     {
-        return true;
+        return false;
     }
 
     /**

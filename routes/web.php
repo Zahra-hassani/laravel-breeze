@@ -27,10 +27,12 @@ Route::prefix("student")->controller(StudentController::class)->middleware("auth
     Route::get('/delete/{id}','delete');
 });
 
+Route::get("/session",[TeacherController::class,"Session"]);
+
 Route::prefix('teacher')->controller(TeacherController::class)->middleware("auth")->group(function (){
     Route::get('/',"index");
     Route::get('/edit/{id}','edit');
-    Route::get('/update/{id}','update');
+    Route::post('/update/{id}','update');
 });
 
 require __DIR__.'/auth.php';

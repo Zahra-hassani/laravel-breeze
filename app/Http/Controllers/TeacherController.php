@@ -11,7 +11,8 @@ class TeacherController extends Controller
     //
     public function index(){
         $teahers = teacher::all();
-        return view("Teacher.home")->with("teachers",$teahers);
+        $message = session()->get("message");
+        return view("Teacher.home",["message"=>$message])->with("teachers",$teahers);
     }
     public function edit($id){
         $teacher = teacher::findOrFail($id);
@@ -20,9 +21,16 @@ class TeacherController extends Controller
     }
     public function update(Request $request,$id){
         $teacher = teacher::findOrFail($id);
-        Gate::authorize('delete',$teacher);
+        Gate::authorize('update',$teacher);
         $teacher->name = $request->name;
         $teacher->update();
+        session()->flash("message","updated successfully");
         return redirect("/teacher");
+    }
+     
+    public function Session(){
+        session()->put("new session","The first session");
+        $session = session()->get('new session');
+        return $session;
     }
 }
