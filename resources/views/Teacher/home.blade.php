@@ -39,6 +39,6 @@
             </tr>
         @endforeach
     </table>
-    <x-footer-component className="flex flex-col items-center bg-cyan-600 px-5 py-3 gap-0" />
+    <x-footer-component className="flex fixed bottom-0 left-0 flex-col items-center bg-cyan-600 px-5 py-3 gap-0" />
 </body>
 </html>

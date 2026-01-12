@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
@@ -28,6 +29,7 @@ Route::prefix("student")->controller(StudentController::class)->middleware("auth
 });
 
 Route::get("/session",[TeacherController::class,"Session"]);
+Route::get("/mail",[MailController::class,"index"]);
 
 Route::prefix('teacher')->controller(TeacherController::class)->middleware("auth")->group(function (){
     Route::get('/',"index");
