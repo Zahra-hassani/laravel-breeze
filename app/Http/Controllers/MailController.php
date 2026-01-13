@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Mail\WelcomeMail;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
@@ -13,5 +14,10 @@ class MailController extends Controller
         $session = Cache::get("name");
         // Cache::forget("name");
         return $session;
+    }
+
+    public function sendMail(){
+        Mail::to("hassanizahra897@gmail.com")->send(new WelcomeMail());
+        return "The email has been sent successfully to Zahra Hassani";
     }
 }
