@@ -28,7 +28,7 @@ class WelcomeMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Hi dear Mrs. Hassani',
+            subject: 'سال نو مبارک!',
         );
     }
 
@@ -38,7 +38,7 @@ class WelcomeMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'Mail.welcome',
+            view: 'Mail.message',
         );
     }
 
@@ -50,8 +50,7 @@ class WelcomeMail extends Mailable
     public function attachments(): array
     {
         return [
-            Attachment::fromPath(storage_path("app/public/privacy.jpg"))->as('our privacy policy')->withMime("application/jpg"),
-            Attachment::fromPath(storage_path("app/public/SPA-privacy-policy.pdf"))->as("privacy and policy")->withMime("application/pdf")
+            Attachment::fromPath(storage_path("app/public/new year.jpg"))->as('our privacy policy')->withMime("application/jpg"),
         ];
     }
 }

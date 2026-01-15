@@ -31,6 +31,7 @@ Route::prefix("student")->controller(StudentController::class)->middleware("auth
 Route::get("/session",[TeacherController::class,"Session"]);
 Route::get("/mail",[MailController::class,"index"]);
 Route::get("/send",[MailController::class,"sendMail"]);
+Route::get("/message",[MailController::class,"newYearMail"]);
 
 Route::prefix('teacher')->controller(TeacherController::class)->middleware("auth")->group(function (){
     Route::get('/',"index");

@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Models\student;
 use App\Models\teacher;
 use App\Models\User;
+use Illuminate\Auth\Notifications\VerifyEmail;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
@@ -18,6 +20,10 @@ class AppServiceProvider extends ServiceProvider
         //
         Gate::define('edit-student',function (User $user, student $student){
             return $user->id === $student->user_id;
+        });
+
+        VerifyEmail::toMailUsing(function ($notifiable,$url) {
+            return (new MailMessage())->subject("تایید ایمیل")->view("Mail.verify",compact('url'));
         });
 
     }
